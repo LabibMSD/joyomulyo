@@ -4,7 +4,6 @@ use Illuminate\Http\Client\Factory;
 use Illuminate\Http\Client\PendingRequest;
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Filename
@@ -15,7 +14,6 @@ return [
     */
 
     'filename' => '_ide_helper.php',
-
     /*
     |--------------------------------------------------------------------------
     | Models filename
@@ -26,7 +24,6 @@ return [
     */
 
     'models_filename' => '_ide_helper_models.php',
-
     /*
     |--------------------------------------------------------------------------
     | PhpStorm meta filename
@@ -38,7 +35,6 @@ return [
     |
     */
     'meta_filename' => '.phpstorm.meta.php',
-
     /*
     |--------------------------------------------------------------------------
     | Fluent helpers
@@ -49,7 +45,6 @@ return [
     */
 
     'include_fluent' => false,
-
     /*
     |--------------------------------------------------------------------------
     | Write model query methods
@@ -60,7 +55,6 @@ return [
     */
 
     'write_query_methods' => true,
-
     /*
     |--------------------------------------------------------------------------
     | Write model magic methods
@@ -71,7 +65,6 @@ return [
     */
 
     'write_model_magic_where' => true,
-
     /*
     |--------------------------------------------------------------------------
     | Write model external Eloquent builder methods
@@ -82,7 +75,6 @@ return [
     */
 
     'write_model_external_builder_methods' => true,
-
     /*
     |--------------------------------------------------------------------------
     | Write model relation count and exists properties
@@ -95,7 +87,6 @@ return [
 
     'write_model_relation_count_properties' => true,
     'write_model_relation_exists_properties' => false,
-
     /*
     |--------------------------------------------------------------------------
     | Write Eloquent model mixins
@@ -110,7 +101,6 @@ return [
     */
 
     'write_eloquent_model_mixins' => false,
-
     /*
     |--------------------------------------------------------------------------
     | Helper files to include
@@ -122,12 +112,10 @@ return [
     */
 
     'include_helpers' => false,
-
     'helper_files' => [
         base_path().'/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
         base_path().'/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php',
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Model locations to include
@@ -144,7 +132,6 @@ return [
     'model_locations' => [
         'app',
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Models to ignore
@@ -157,7 +144,6 @@ return [
     'ignored_models' => [
         // App\MyModel::class,
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Models hooks
@@ -172,7 +158,6 @@ return [
     'model_hooks' => [
         // App\Support\IdeHelper\MyModelHook::class
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Extra classes
@@ -186,7 +171,6 @@ return [
         'Eloquent' => ['Illuminate\Database\Eloquent\Builder', 'Illuminate\Database\Query\Builder'],
         'Session' => ['Illuminate\Session\Store'],
     ],
-
     'magic' => [],
 
     /*
@@ -202,7 +186,6 @@ return [
     'interfaces' => [
         // App\MyInterface::class => App\MyImplementation::class,
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Support for camel cased models
@@ -228,7 +211,6 @@ return [
     |
     */
     'model_camel_case_properties' => false,
-
     /*
     |--------------------------------------------------------------------------
     | Property casts
@@ -241,7 +223,6 @@ return [
         'integer' => 'int',
         'boolean' => 'bool',
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Include DocBlocks from classes
@@ -252,7 +233,6 @@ return [
     |
     */
     'include_class_docblocks' => false,
-
     /*
     |--------------------------------------------------------------------------
     | Force FQN usage
@@ -264,7 +244,6 @@ return [
     |
     */
     'force_fqn' => false,
-
     /*
     |--------------------------------------------------------------------------
     | Use generics syntax
@@ -275,7 +254,6 @@ return [
     |
     */
     'use_generics_annotations' => true,
-
     /*
     |--------------------------------------------------------------------------
     | Default return types for macros
@@ -289,7 +267,6 @@ return [
     'macro_default_return_types' => [
         Factory::class => PendingRequest::class,
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Additional relation types
@@ -338,7 +315,6 @@ return [
     */
 
     'enforce_nullable_relationships' => true,
-
     /*
     |--------------------------------------------------------------------------
     | Make soft deletable relations nullable
@@ -361,7 +337,6 @@ return [
     */
 
     'soft_deletes_force_nullable' => true,
-
     /*
     |--------------------------------------------------------------------------
     | Run artisan commands after migrations to generate model helpers
@@ -373,5 +348,4 @@ return [
     'post_migrate' => [
         // 'ide-helper:models --nowrite',
     ],
-
 ];
