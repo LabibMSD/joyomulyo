@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\ServiceOrderStatus;
+use App\Traits\HasSequentialNumber;
 use Auth;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
@@ -14,7 +15,7 @@ use Override;
 #[Fillable(['vehicle_id', 'status', 'complaint', 'notes'])]
 class ServiceOrder extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, HasSequentialNumber;
 
     #[Override]
     protected function casts(): array
@@ -64,6 +65,11 @@ class ServiceOrder extends Model
     protected static function booted(): void
     {
         static::creating(function (self $serviceOrder) {
+            if (!$serviceOrder->service_number) {
+                $prefix = 'JM-SRV-'.now()->format('ym').'-';
+                $serviceOrder->service_number = static::generateSequentialNumber('service_number', $prefix);
+            }
+
             if ($id = Auth::id()) {
                 $serviceOrder->created_by = $id;
             }

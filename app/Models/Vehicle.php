@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasSequentialNumber;
 use Auth;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -14,8 +15,7 @@ use Override;
 #[Fillable(['license_plate', 'brand', 'model'])]
 class Vehicle extends Model
 {
-    use SoftDeletes;
-
+    use HasSequentialNumber, SoftDeletes;
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by')->withTrashed();
@@ -61,6 +61,10 @@ class Vehicle extends Model
     protected static function booted(): void
     {
         static::creating(function (self $vehicle) {
+            if (! $vehicle->vehicle_code) {
+                $vehicle->vehicle_code = static::generateSequentialNumber('vehicle_code', 'JM-VEH-');
+            }
+
             if ($id = Auth::id()) {
                 $vehicle->created_by = $id;
             }
